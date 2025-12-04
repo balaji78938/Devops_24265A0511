@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: eventreg-service
+spec:
+  selector:
+    app: eventreg
+  type: NodePort
+  ports:
+    - port: 7070         # Cluster IP port
+      targetPort: 80   # Container port
+      nodePort: 30610   # Fixed NodePort (must be between 30000-32767)
